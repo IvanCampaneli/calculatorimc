@@ -4,32 +4,30 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-const val KEY_RESULT_IMC = "ResultActivity.KEY_IMC"
-
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val result = intent.getFloatExtra(KEY_RESULT_IMC, 0f)
-        val tvResult = findViewById<TextView>(R.id.tv_result)
-        tvResult.text = result.toString()
+        val result = intent.getFloatExtra("imc_result", 0.1f)
 
-        val tvClassificao = findViewById<TextView>(R.id.classificao)
+        val tvResultado = findViewById<TextView>(R.id.tv_resultado)
+        val tvClassificacao = findViewById<TextView>(R.id.tv_classificacao)
 
-        val classificacao: String? = if(result <= 18.5f){
-            "MAGREZA"
-        } else if(result > 18.5f && result <= 24.9f){
+        tvResultado.text = result.toString()
+
+        val classificacao = if (result < 18.5f) {
+            "ABAIXO DO PESO"
+        } else if (result in 18.5f..24.9f) {
             "NORMAL"
-        } else if(result >= 25f && result <= 29.9f){
+        } else if (result in 25f..29.9f) {
             "SOBREPESO"
-        } else if(result >= 30f && result <= 39.9f){
+        } else if (result in 30f..39.9f) {
             "OBESIDADE"
         } else {
             "OBESIDADE GRAVE"
         }
 
-        tvClassificao.text = classificacao
-
+        tvClassificacao.text = classificacao
     }
 }
