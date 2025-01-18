@@ -3,6 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="color_underweight">#000000</color> <!-- Preto -->
+    <color name="color_normal">#00FF00</color> <!-- Verde -->
+    <color name="color_overweight">#FFDD00</color> <!-- Amarelo -->
+    <color name="color_obesity">#FF0000</color> <!-- Vermelho -->
+    <color name="color_severe_obesity">#800000</color> <!-- Vinho -->
+
+
     <color name="primaty_400">#cd00ea</color>
     <color name="primaty_900">#5c00d2</color>
 </resources>

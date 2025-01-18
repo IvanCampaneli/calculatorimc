@@ -3,6 +3,7 @@ package com.comunidadedevspace.imc
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,5 +30,16 @@ class ResultActivity : AppCompatActivity() {
         }
 
         tvClassificacao.text = classificacao
+
+        val cor = when (classificacao) {
+            "ABAIXO DO PESO" -> ContextCompat.getColor(this, R.color.color_underweight)
+            "NORMAL" -> ContextCompat.getColor(this, R.color.color_normal)
+            "SOBREPESO" -> ContextCompat.getColor(this, R.color.color_overweight)
+            "OBESIDADE" -> ContextCompat.getColor(this, R.color.color_obesity)
+            "OBESIDADE GRAVE" -> ContextCompat.getColor(this, R.color.color_severe_obesity)
+            else -> ContextCompat.getColor(this, R.color.black) // Cor padrão
+        }
+
+        tvClassificacao.setTextColor(cor)
     }
 }
